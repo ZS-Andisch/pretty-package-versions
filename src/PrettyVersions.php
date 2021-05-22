@@ -16,11 +16,11 @@ class PrettyVersions
      */
     public static function getVersion(string $packageName): Version
     {
-        if (isset(InstalledVersions::getRawData()['versions'][$packageName]['provided'])) {
+        if (isset(InstalledVersions::getAllRawData()['versions'][$packageName]['provided'])) {
             throw ProvidedPackageException::create($packageName);
         }
 
-        if (isset(InstalledVersions::getRawData()['versions'][$packageName]['replaced'])) {
+        if (isset(InstalledVersions::getAllRawData()['versions'][$packageName]['replaced'])) {
             throw ReplacedPackageException::create($packageName);
         }
 
